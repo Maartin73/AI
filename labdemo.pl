@@ -1,5 +1,4 @@
-% some example rules to get you started
-
+% RULES
 
 % rule 1
 stimulus_situation(verbal) :- environment(papers);
@@ -72,6 +71,55 @@ medium(lecture_tutorial) :- stimulus_situation(verbal),
 medium(role_play_execises) :- stimulus_situation(verbal),
                     stimulus_response(oral),
                     feedback(yes).
+
+
+
+%  OBJECTS
+environment(papers).
+environment(manuals).
+environment(documents).
+environment(textbooks).
+environment(pictures).
+environment(illustrations).
+environment(photographs).
+environment(diagrams).
+environment(machines).
+environment(buildings).
+environment(tools).
+environment(numbers).
+environment(formulas).
+environment(computer_programs).
+
+job(lecturing).
+job(advising).
+job(counselling).
+job(building).
+job(reparing).
+job(troubleshooting).
+job(writing).
+job(typing).
+job(drawing).
+job(evaluating).
+job(reasoning).
+job(investigating).
+
+stimulus_situation(verbal).
+stimulus_situation(visual).
+stimulus_situation(physical_object).
+stimulus_situation(symbolic).
+
+stimulus_response(oral).
+stimulus_response(hands_on).
+stimulus_response(documented).
+stimulus_response(analytical).
+
+feedback(yes).
+feedback(no).
+
+
+
+
+
 
 % 3 inputs required: 1 environment 2 job, 3 feedback yes/no                 
 % code here is incomplete and you may wish to modify it
