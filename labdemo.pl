@@ -117,15 +117,11 @@ feedback(yes).
 feedback(no).
 
 
-
-
-
-
 % 3 inputs required: 1 environment 2 job, 3 feedback yes/no                 
 % code here is incomplete and you may wish to modify it
 go :- 
     getEnvironment,
-    % getJob,
+    getJob,
     feedback,
     ( stimulus_situation(SS), 
       nl, write('Stimulus situation is '), write(SS), nl,
@@ -133,12 +129,17 @@ go :-
     ;
       writeln('Could not advise on an appropriate medium')
     ).
-    % cleanInputs.
+    cleanInputs.
       
 getEnvironment :-
     write('Input the environment '), 
     read(E), 
     assert(environment(E)).
+
+getJob :-
+    write('Input the job '), 
+    read(J), 
+    assert(environment(J)).
 
 feedback :-       
     write('Is feedback required yes/no '),
