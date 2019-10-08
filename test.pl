@@ -1,3 +1,4 @@
+
 % RULES
 
 % rule 1
@@ -72,35 +73,37 @@ medium(role_play_execises) :- stimulus_situation(verbal),
                     stimulus_response(oral),
                     feedback(yes).
 
-
-% 3 inputs required: 1 environment 2 job, 3 feedback yes/no
+% 3 inputs required: 1 environment 2 job, 3 feedback yes/no                 
 % code here is incomplete and you may wish to modify it
-go :-
+go :- 
     getEnvironment,
     getJob,
     feedback,
-    ( nl, (stimulus_situation(SS)-> write('Stimulus situation is '), write(SS), nl; nl, write('Non existing environement'), nl),
-      nl,(stimulus_response(SR)-> write('Stimulus reaction is '), write(SR), nl; nl, write('Non existing job'), nl),
-      nl, (medium(M)-> write('Medium is '), write(M); nl, writeln('Could not advise on an appropriate medium'))
+    ( stimulus_situation(SS),
+      nl, write('Stimulus situation is '), write(SS), nl; nl, write('Non existing environement'), nl,
+      stimulus_response(SR), nl, write('Stimulus reaction is '), write(SR), nl; nl, write('Non existing job'), nl,
+      medium(M), nl, write('Medium is '), write(M)
+    ;
+      nl, writeln('Could not advise on an appropriate medium')
     ),
     cleanInputs.
-
+      
 getEnvironment :-
-    write('Input the environment '),
-    read(E),
+    write('Input the environment '), 
+    read(E), 
     assert(environment(E)).
 
 getJob :-
-    write('Input the job '),
-    read(G),
-    assert(job(G)).
+    write('Input the job '), 
+    read(J), 
+    assert(environment(J)).
 
-feedback :-
+feedback :-       
     write('Is feedback required yes/no '),
     read(F),
     assert(feedback(F)).
-
-cleanInputs :-
+      
+cleanInputs :- 
     retractall(environment(_)),
     retractall(job(_)),
     retractall(feedback(_)).
